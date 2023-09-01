@@ -51,7 +51,11 @@ class Calculator {
 
     udateDisplay() {
         this.currentOperandTextElement.innerText = this.currentOperand;
-        this.previousOperandTextElement.innerText = this.previousOperand
+        if(this.operation !== undefined) {
+            this.previousOperandTextElement.innerText = this.previousOperand + this.operation
+        } else {
+            this.previousOperandTextElement.innerText = this.previousOperand
+        } 
     }
 }
 
@@ -91,10 +95,91 @@ operationButtons.forEach(button => {
 
 equalsButton.addEventListener('click', () => {
     calculator.compute()
+    calculator.operation = undefined
     calculator.udateDisplay()
 })
 
 deleteButton.addEventListener('click', () => {
     calculator.delete()
     calculator.udateDisplay()
+})
+
+document.addEventListener('keydown', (event) => {
+    switch(event.key) {
+        case "0":
+            calculator.appendNumber(event.key)
+            calculator.udateDisplay()
+            break
+        case "1":
+            calculator.appendNumber(event.key)
+            calculator.udateDisplay()
+            break
+        case "2":
+            calculator.appendNumber(event.key)
+            calculator.udateDisplay()
+            break
+        case "3":
+            calculator.appendNumber(event.key)
+            calculator.udateDisplay()
+            break
+        case "4":
+            calculator.appendNumber(event.key)
+            calculator.udateDisplay()
+            break
+        case "5":
+            calculator.appendNumber(event.key)
+            calculator.udateDisplay()
+            break
+        case "6":
+            calculator.appendNumber(event.key)
+            calculator.udateDisplay()
+            break
+        case "7":
+            calculator.appendNumber(event.key)
+            calculator.udateDisplay()
+            break
+        case "8":
+            calculator.appendNumber(event.key)
+            calculator.udateDisplay()
+            break
+        case "9":
+            calculator.appendNumber(event.key)
+            calculator.udateDisplay()
+            break
+        case ".":
+            calculator.appendNumber(event.key)
+            calculator.udateDisplay()
+            break
+        case "+":
+            calculator.compute
+            calculator.chooseOperation(event.key)
+            calculator.udateDisplay()
+            break
+        case "-":
+            calculator.compute
+            calculator.chooseOperation(event.key)
+            calculator.udateDisplay()
+            break
+        case "*":
+            calculator.compute
+            calculator.chooseOperation(event.key)
+            calculator.udateDisplay()
+            break
+        case "/":
+            calculator.compute
+            calculator.chooseOperation(event.key)
+            calculator.udateDisplay()
+            break
+        case "Enter":
+            calculator.compute()
+            calculator.operation = undefined
+            calculator.udateDisplay()
+            break
+        case "Backspace":
+            calculator.delete()
+            calculator.udateDisplay()
+            break
+        default:
+            break
+    }
 })
