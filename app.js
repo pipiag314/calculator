@@ -49,7 +49,7 @@ class Calculator {
         }
     }
 
-    udateDisplay() {
+    updateDisplay() {
         this.currentOperandTextElement.innerText = this.currentOperand;
         if(this.operation !== undefined) {
             this.previousOperandTextElement.innerText = this.previousOperand + this.operation
@@ -76,109 +76,112 @@ const calculator = new Calculator(previousOperandTextElement, currentOperandText
 numberButtons.forEach(button => {
     button.addEventListener("click", () => {
         calculator.appendNumber(button.innerText)
-        calculator.udateDisplay()
+        calculator.updateDisplay()
     })
 })
 
 allClearButton.addEventListener('click', () => {
     calculator.clear();
-    calculator.udateDisplay()
+    calculator.updateDisplay()
 })
 
 operationButtons.forEach(button => {
     button.addEventListener("click", () => {
         calculator.compute()
         calculator.chooseOperation(button.innerText)
-        calculator.udateDisplay()
+        calculator.updateDisplay()
     })
 })
 
 equalsButton.addEventListener('click', () => {
     calculator.compute()
     calculator.operation = undefined
-    calculator.udateDisplay()
+    calculator.updateDisplay()
 })
 
 deleteButton.addEventListener('click', () => {
     calculator.delete()
-    calculator.udateDisplay()
+    calculator.updateDisplay()
 })
 
 document.addEventListener('keydown', (event) => {
     switch(event.key) {
         case "0":
             calculator.appendNumber(event.key)
-            calculator.udateDisplay()
+            calculator.updateDisplay()
             break
         case "1":
             calculator.appendNumber(event.key)
-            calculator.udateDisplay()
+            calculator.updateDisplay()
             break
         case "2":
             calculator.appendNumber(event.key)
-            calculator.udateDisplay()
+            calculator.updateDisplay()
             break
         case "3":
             calculator.appendNumber(event.key)
-            calculator.udateDisplay()
+            calculator.updateDisplay()
             break
         case "4":
             calculator.appendNumber(event.key)
-            calculator.udateDisplay()
+            calculator.updateDisplay()
             break
         case "5":
             calculator.appendNumber(event.key)
-            calculator.udateDisplay()
+            calculator.updateDisplay()
             break
         case "6":
             calculator.appendNumber(event.key)
-            calculator.udateDisplay()
+            calculator.updateDisplay()
             break
         case "7":
             calculator.appendNumber(event.key)
-            calculator.udateDisplay()
+            calculator.updateDisplay()
             break
         case "8":
             calculator.appendNumber(event.key)
-            calculator.udateDisplay()
+            calculator.updateDisplay()
             break
         case "9":
             calculator.appendNumber(event.key)
-            calculator.udateDisplay()
+            calculator.updateDisplay()
             break
         case ".":
             calculator.appendNumber(event.key)
-            calculator.udateDisplay()
+            calculator.updateDisplay()
             break
         case "+":
-            calculator.compute
+            calculator.compute()
             calculator.chooseOperation(event.key)
-            calculator.udateDisplay()
+            calculator.updateDisplay()
             break
         case "-":
-            calculator.compute
+            calculator.compute()
             calculator.chooseOperation(event.key)
-            calculator.udateDisplay()
+            calculator.updateDisplay()
             break
         case "*":
-            calculator.compute
+            calculator.compute()
             calculator.chooseOperation(event.key)
-            calculator.udateDisplay()
+            calculator.updateDisplay()
             break
         case "/":
-            calculator.compute
+            calculator.compute()
             calculator.chooseOperation(event.key)
-            calculator.udateDisplay()
+            calculator.updateDisplay()
             break
         case "Enter":
             calculator.compute()
             calculator.operation = undefined
-            calculator.udateDisplay()
+            calculator.updateDisplay()
             break
         case "Backspace":
             calculator.delete()
-            calculator.udateDisplay()
+            calculator.updateDisplay()
             break
+        case " ":
+            calculator.clear()
+            calculator.updateDisplay()
         default:
             break
     }
